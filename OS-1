@@ -1,0 +1,29 @@
+from operator import add as a
+
+process = int(input("Enter number of process: "))
+bust = []
+waiting = [0] 
+
+for _ in range(process):
+    bt = int(input("Enter bust time: "))
+    bust.append(bt)
+
+for i in range(len(bust)-1):
+    wt = waiting[i] + bust[i]
+    waiting.append(wt)
+
+tat = list(map(a, bust,waiting))
+
+print("Waiting time of all process are:",waiting)
+
+sum_wt = 0
+for i in range(len(waiting)):
+    sum_wt = sum_wt + waiting[i]
+print("Average waiting time is:",sum_wt/len(waiting))
+
+print("Trun around time of all process are:",tat)
+
+sum_tat = 0
+for i in range(len(tat)):
+    sum_tat = sum_tat + tat[i]
+print("Average turn around time is:",sum_tat/len(tat))
